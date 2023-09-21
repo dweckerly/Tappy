@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4budkofojoc"]
+
+[ext_resource type="Texture2D" uid="uid://fbnn8dj75jo7" path="res://assets/plane/planes_sheet.png" id="1_gpvpb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0m0b"]
+atlas = ExtResource("1_gpvpb")
+region = Rect2(0, 0, 88, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fuklq"]
+atlas = ExtResource("1_gpvpb")
+region = Rect2(88, 0, 88, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cj0nh"]
+atlas = ExtResource("1_gpvpb")
+region = Rect2(176, 0, 88, 73)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a75lh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0m0b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fuklq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cj0nh")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_52a6h"]
+radius = 28.0
+
+[node name="PlaneCB" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_a75lh")
+animation = &"fly"
+autoplay = "fly"
+frame_progress = 0.34023
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_52a6h")
