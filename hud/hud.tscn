@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwbbisdn0orj6"]
+
+[ext_resource type="Script" path="res://hud/hud.gd" id="1_7sg4f"]
+[ext_resource type="LabelSettings" uid="uid://de7csldlaybtw" path="res://assets/LG_48_red.tres" id="1_75lyx"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7sg4f")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 52.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "000"
+label_settings = ExtResource("1_75lyx")
+horizontal_alignment = 1
+vertical_alignment = 1

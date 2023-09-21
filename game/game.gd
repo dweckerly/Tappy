@@ -6,8 +6,11 @@ extends Node2D
 @onready var spawn_upper = $SpawnUpper
 @onready var spawn_lower = $SpawnLower
 @onready var spawn_timer = $SpawnTimer
+@onready var engine_sound = $EngineSound
+@onready var game_over_sound = $GameOverSound
 
 func _ready():
+	GameManager.set_score(0)
 	GameManager.on_game_over.connect(on_game_over)
 	spawn_pipes()
 
@@ -31,3 +34,5 @@ func _on_spawn_timer_timeout():
 
 func on_game_over() -> void:
 	stop_pipes()
+	engine_sound.stop()
+	game_over_sound.play()
