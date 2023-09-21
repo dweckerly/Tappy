@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://byv4sthe0r5lj"]
+[gd_scene load_steps=4 format=3 uid="uid://byv4sthe0r5lj"]
 
 [ext_resource type="Texture2D" uid="uid://bhwhdug2b4urc" path="res://assets/background/rocks_2.png" id="1_nr8l5"]
 [ext_resource type="PackedScene" uid="uid://b4budkofojoc" path="res://plane_cb/plane_cb.tscn" id="2_ebdkr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ym0qs"]
+size = Vector2(498, 20)
 
 [node name="Game" type="Node2D"]
 
@@ -11,3 +14,10 @@ texture = ExtResource("1_nr8l5")
 
 [node name="PlaneCB" parent="." instance=ExtResource("2_ebdkr")]
 position = Vector2(57, 536)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(0, 866)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(239, 0)
+shape = SubResource("RectangleShape2D_ym0qs")

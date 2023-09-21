@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b4budkofojoc"]
+[gd_scene load_steps=10 format=3 uid="uid://b4budkofojoc"]
 
 [ext_resource type="Texture2D" uid="uid://fbnn8dj75jo7" path="res://assets/plane/planes_sheet.png" id="1_gpvpb"]
 [ext_resource type="Script" path="res://plane_cb/plane_cb.gd" id="1_n2pmb"]
@@ -35,6 +35,27 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_52a6h"]
 radius = 28.0
 
+[sub_resource type="Animation" id="Animation_s4q1g"]
+resource_name = "fly"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.349066, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3h7k6"]
+_data = {
+"fly": SubResource("Animation_s4q1g")
+}
+
 [node name="PlaneCB" type="CharacterBody2D"]
 script = ExtResource("1_n2pmb")
 
@@ -43,7 +64,12 @@ scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_a75lh")
 animation = &"fly"
 autoplay = "fly"
-frame_progress = 0.484381
+frame_progress = 0.158759
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_52a6h")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3h7k6")
+}
