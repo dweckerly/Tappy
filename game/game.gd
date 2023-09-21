@@ -8,6 +8,7 @@ extends Node2D
 @onready var spawn_timer = $SpawnTimer
 
 func _ready():
+	GameManager.on_game_over.connect(on_game_over)
 	spawn_pipes()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,3 +23,6 @@ func spawn_pipes() -> void:
 
 func _on_spawn_timer_timeout():
 	spawn_pipes()
+
+func on_game_over() -> void:
+	pass
