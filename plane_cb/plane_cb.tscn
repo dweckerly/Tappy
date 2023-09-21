@@ -56,7 +56,7 @@ _data = {
 "fly": SubResource("Animation_s4q1g")
 }
 
-[node name="PlaneCB" type="CharacterBody2D"]
+[node name="PlaneCB" type="CharacterBody2D" groups=["plane"]]
 script = ExtResource("1_n2pmb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

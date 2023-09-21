@@ -6,6 +6,8 @@ extends CharacterBody2D
 const GRAVITY: float = 1900.0
 const POWER: float = -400.0
 
+var _dead: bool = false
+
 func _ready():
 	pass # Replace with function body.
 
@@ -22,6 +24,9 @@ func fly() -> void:
 		animation_player.play("fly")
 
 func die() -> void:
+	if _dead: 
+		return
+	_dead = true
 	animated_sprite.stop()
 	GameManager.on_game_over.emit()
 	set_physics_process(false)
